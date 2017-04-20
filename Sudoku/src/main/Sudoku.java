@@ -22,6 +22,9 @@ public class Sudoku
 		printSudoku();		
 	} 
 	
+	/*
+	 * initialise cells with 0, assign row id, column id and block id to each cell
+	 */
 	public static void initCells()
 	{
 		outer: for (int rowID = 0, colID = 0; ; colID++)
@@ -48,10 +51,13 @@ public class Sudoku
 		}		
 	}
 	
+	/*
+	 * generate a complete sudoku board
+	 */
 	public static void generaliseCompleteBoard()
 	{
-		ArrayList<Integer> intArray = new ArrayList<Integer>();
-		
+		//initArray contains: 1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4
+		ArrayList<Integer> intArray = new ArrayList<Integer>();		
 		int count = 0;
 		for (int i = 1; i <= SIZE;)
 		{
@@ -64,6 +70,7 @@ public class Sudoku
 			}
 		}
 		
+		// shuffle the initArray till it meets the requirements of the sudoku game
 		outer: while (true)
 		{
 			Collections.shuffle(intArray);
@@ -85,6 +92,9 @@ public class Sudoku
 		
 	}
 	
+	/*
+	 * randomly assign 0 to 7 cells to generate the sudoku game
+	 */
 	public static void generaliseSudoku()
 	{
 		Random random = new Random();
@@ -104,6 +114,9 @@ public class Sudoku
 		}		
 	}
 	
+	/*
+	 * print out the sudoku game
+	 */
 	public static void printSudoku()
 	{
 		for (int row = 0; row < SIZE; row++)
